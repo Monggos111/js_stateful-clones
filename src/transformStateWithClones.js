@@ -25,6 +25,9 @@ function transformStateWithClones(state, actions) {
       case 'clear':
         currentState = {};
         break;
+      default:
+        // Можна кинути помилку або просто нічого не робити
+        throw new Error(`Unknown action type: ${action.type}`);
     }
     history.push({ ...currentState });
   }
